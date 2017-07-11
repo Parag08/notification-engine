@@ -1,0 +1,29 @@
+{
+  "name": "notification-engine",
+  "version": "1.0.0",
+  "description": "A central entity which will read kafka messages from multiple kafka topics and execute rules on them",
+  "main": "sh start.sh",
+  "scripts": {
+    "test": "sh start.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Parag08/notification-engine.git"
+  },
+  "keywords": [
+    "rules-manager",
+    "rules",
+    "kafka-manager",
+    "postoffice"
+  ],
+  "author": "Parag Rahangdale",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Parag08/notification-engine/issues"
+  },
+  "homepage": "https://github.com/Parag08/notification-engine#readme",
+  "dependencies": {
+    "seneca": "^3.4.1"
+  },
+  "devDependencies": {}
+}

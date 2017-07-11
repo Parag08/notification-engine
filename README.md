@@ -16,3 +16,7 @@ Once rules are satisfied send messages to registered user using sms or email
 language:- nodejs  
 DB:- orientdb  
 architecture:- microservices(senecajs)  
+
+<b>Expectation</b> 
+
+1. We should be able to scale the services
