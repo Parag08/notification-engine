@@ -2,7 +2,7 @@ var seneca = require('seneca')()
 
 function Service(serviceName, config) {
     this.serviceName = serviceName;
-    seneca.use('mesh',{auto:true, pin:'service:'+serviceName});
+    //seneca.use('mesh',{auto:true, pin:'service:'+serviceName});
 }
 
 Service.prototype.getServiceName = function() {
