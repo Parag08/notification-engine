@@ -19,4 +19,9 @@ architecture:- microservices(senecajs)
 
 <b>Expectation</b> 
 
-1. We should be able to scale the services
+1. We should be able to scale the services  [seneca-mesh will take care of it]   
+
+
+<b>bugs</b>
+
+1. first call always fail for seneca [investigate] it does hit the service but it cant get the reply   

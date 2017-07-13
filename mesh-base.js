@@ -1,12 +1,21 @@
 var seneca = require('seneca')()
 
 function Service(serviceName, config) {
+    console.log('serviceCreated:',serviceName,'config:',config)
     this.serviceName = serviceName;
     seneca.add('service:' + this.serviceName + ',func:getStatus', function (msg,reply) {
-          reply(null,{alive:true})
+          console.log('getstatus:'+this.serviceName,msg)
+          reply(null,{'alive':'true'})
+    }).use('consul-registry',{
+        host: 'localhost'
     }).use('mesh',{
-    isbase: true,
-    pin: 'service:'+this.serviceName
+    isbase: config.isbase && true,
+    pin: 'service:'+this.serviceName,
+    discover: {
+            multicast: {
+                active: false
+            }
+        }
   })
 }
 
@@ -112,7 +121,7 @@ function testsend(object) {
 }
 
 function test() {
-    var object = new Service('testingservice')
+    var object = new Service('testingservice',{isbase:true})
     console.log(object.getServiceName())
     testaddFunctionalityConsumer(object)
     //testaddFunctionalityObserver(object)
