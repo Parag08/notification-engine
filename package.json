@@ -23,7 +23,9 @@
   },
   "homepage": "https://github.com/Parag08/notification-engine#readme",
   "dependencies": {
-    "seneca": "^3.4.1"
+    "seneca": "^3.4.1",
+    "seneca-balance-client":"0.6.1",
+    "seneca-mesh":"0.10.0"
   },
   "devDependencies": {}
 }
