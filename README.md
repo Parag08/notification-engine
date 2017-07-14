@@ -1,5 +1,7 @@
 # notification-engine
 
+<b>this project is on hold I need to create a service discovery first for this to work</b>
+
 A central entity which will read kafka messages from multiple kafka topics and execute rules on them
 Once rules are satisfied send messages to registered user using sms or email  
 
