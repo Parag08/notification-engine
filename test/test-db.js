@@ -17,11 +17,7 @@ service.send('db', 'init', {
     })
 
 service.send('db', 'list', {
-        host: 'localhost',
-        port: 2424,
-        username:'root',
-        password:'root',
-        db: 'notify'
+       className:'rules'
     }, function(err, msg) {
         console.log('result_received_testdbinit:', err,msg)
     })

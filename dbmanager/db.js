@@ -6,7 +6,7 @@ var db;
 var server;
 
 service.addFunction('init', function(msg, reply) {
-    console.log('db:init:msg:',msg)
+    console.log('db:init:msg:', msg)
     server = OrientDB({
         host: msg.host,
         port: msg.port,
@@ -30,6 +30,31 @@ service.addFunction('init', function(msg, reply) {
 })
 
 service.addFunction('list', function(msg, reply) {
-    console.log('db:list:msg:',msg)
-    reply(null,{dummy:'hi'})
+    console.log('db:list:msg:', msg)
+
+    className = msg.className
+        db.class.get(className).then(function(rule) {
+            rule.list().then(function(records) {
+                reply(null,records);
+            }).catch(function(err) {
+                reply(err, null);
+            })
+        });
 })
+
+service.addFunction('listRid',function (msg,reply) {
+    console.log('db:listRid:msg:',msg)
+    var  RID =  msg.rid
+    db.record.get(RID)
+   .then(
+      function(record){
+         console.log('db:listRid:Loaded Record:', record);
+         reply(null,record);
+       }
+   ).catch(function(err) {
+         console.log('db:listRid:error:',err)
+         reply(err, null);
+  })
+})
+
+
